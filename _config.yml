@@ -1,6 +1,9 @@
 collections: 
-  authors:
+  projects:
     output: true
+    permalink: /:collection/:slug
+  posts: 
+    permalink: /:collection/:title
 
 defaults:
   - scope:

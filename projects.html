@@ -1,0 +1,16 @@
+---
+title: Projects
+permalink: /projects
+---
+<h1>Projects</h1>
+<ul>
+  {% for project in site.projects %}
+  <li>
+    <h2><a href="{{ project.url }}">{{ project.name }}</a></h2>
+    {% for tag in project.tags%}
+    <div>{{tag}}</div>
+    {% endfor %}
+    <p>{{ project.content | markdownify }}</p>
+  </li>
+  {% endfor %}
+</ul>

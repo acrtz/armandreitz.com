@@ -2,8 +2,11 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="/assets/css/styles.css">
   {% feed_meta %}
   {% seo %}
@@ -12,6 +15,20 @@
 <body>
   {% include navigation.html %}
   {{ content }}
+  <script type="text/javascript" src='/assets/js/nav.js'></script>
+  <script>
+    console.log({ Typist })
+    const typist = new Typist(
+      [
+        { type: 'text', text: 'Hey my name is Armand. I am a software developer. Welcome to my site.' },
+        { type: 'newline', pause: 300 },
+        { type: 'newline', pause: 300 },
+        { type: 'text', text: 'This site is a collection of my work and projects along with some of my thoughts and ramblings on various development related topics.' },
+      ],
+      'auto-type'
+    );
+    typist.start();
+  </script>
 </body>
 
 </html>

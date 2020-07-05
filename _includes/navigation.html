@@ -1,8 +1,20 @@
 <nav>
-  {% for item in site.data.navigation %}
-  <a href="{{ item.link | relative_url | replace: '.html', ''}}" {% if page.url == item.link %}class="active-nav"
-    {% endif %}>
-    {{ item.name }}
-  </a>
-  {% endfor %}
+  <a href='/' id='nav-name'>Armand Reitz</a>
+  <div id='large-nav'>
+    {% for item in site.data.navigation %}
+    <a href="{{ item.link }}" class="nav-link {% if page.url == item.link %}active-nav{% endif %}">
+      {{ item.name }}
+    </a>
+    {% endfor %}
+  </div>
+  <div id='small-nav'>
+    <img id='burger' src='/assets/images/burger.svg'>
+    <div id="small-nav-slide-out" class='closed'>
+      {% for item in site.data.navigation %}
+      <a href="{{ item.link }}" class="nav-link {% if page.url == item.link %}active-nav{% endif %}">
+        {{ item.name }}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
 </nav>
