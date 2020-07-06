@@ -2,15 +2,18 @@
 title: Projects
 permalink: /projects
 ---
-<h1>Projects</h1>
-<ul>
-  {% for project in site.projects %}
-  <li>
-    <h2><a href="{{ project.url }}">{{ project.name }}</a></h2>
-    {% for tag in project.tags%}
-    <div>{{tag}}</div>
+<div id='project-index'>
+  <h1 id='project-index-title'>Projects</h1>
+  <div id='project-list'>
+    {% for project in site.projects %}
+      <a class='project-thumbnail' href="{{ project.url }}">
+        <img style='width: 100%;' src="{{ project.image }}" />
+        <div class="project-thumbnail-title">{{ project.name }}</div>
+        {% for tag in project.tags%}
+          <div>{{tag}}</div>
+        {% endfor %}
+      </a>
     {% endfor %}
-    <p>{{ project.content | markdownify }}</p>
-  </li>
-  {% endfor %}
-</ul>
+  </div>
+</div>
+

@@ -2,9 +2,9 @@
 title: The Page
 ---
 <div id="banner">
-  <span style='color: #e34ee1'>armandrtz</span>
+  <!-- <span style='color: #e34ee1'>armandrtz</span>
   <span>in</span>
-  <span style='color: #29ffb8'>~/portfolio</span><span>:</span>
+  <span style='color: #29ffb8'>~/portfolio</span><span>:</span> -->
   <span id='auto-type' />
 </div>
 <div id="social-bar">
@@ -12,3 +12,31 @@ title: The Page
   <img class='social-icon' src='/assets/images/linkedin.svg' />
   <img class='social-icon' src='/assets/images/youtube.svg' />
 </div>
+<script type="text/javascript" src='/assets/js/typer.js'></script>
+<script>
+  // const typist = new Typist(
+  //   [
+  //     { type: 'text', text: 'Hey my name is Armand. I am a software developer. Welcome to my site.', speed: [80, 220] },
+  //     { type: 'html', html: '<br/>', pause: 300 },
+  //     { type: 'html', html: '<br/>', pause: 300 },
+  //     { type: 'text', text: 'This site is a collection of my work, projects, and thoughts on various development related topics.', speed: [80, 220] },
+  //   ],
+  //   'auto-type'
+  // );
+  const typist = new Typist(
+    [
+      { type: 'html', html: `<span style='color: #e34ee1'>Programmer A</span>: `, pause: 500},
+      { type: 'text', text: 'Knock, knock...', speed: [120, 320], pause: 500 },
+      { type: 'html', html: '<br/>' },
+      { type: 'html', html: '<br/>' },
+      { type: 'html', html: `<span style='color: #e34ee1'>Programmer A</span>: `, pause: 500},
+      { type: 'text', text: 'Race condition.', speed: [120, 200], pause: 200 },
+      { type: 'html', html: '<br/>' },
+      { type: 'html', html: '<br/>' },
+      { type: 'html', html: `<span style='color: #29ffb8'>Programmer B</span>: `, pause: 500},
+      { type: 'text', text: `Who's there?`, speed: [220, 320] },
+    ],
+    'auto-type'
+  );
+  typist.start();
+</script>

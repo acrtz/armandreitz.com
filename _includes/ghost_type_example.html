@@ -1,0 +1,23 @@
+<div style="color: white; width: 80%; margin: 20px auto; padding: 20px; height: 200px; background-color: #424242;">
+  <div id='auto-type'>
+</div>
+</div>
+<script src='/assets/js/typer.js'></script>
+<script>
+  const typist = new Typist(
+    [
+      { type: 'html', html: `<span style='color: #e34ee1'>Programmer A</span>: `, pause: 500 },
+      { type: 'text', text: 'Knock, knock...', speed: [120, 320], pause: 500 },
+      { type: 'html', html: '<br/>' },
+      { type: 'html', html: '<br/>' },
+      { type: 'html', html: `<span style='color: #e34ee1'>Programmer A</span>: `, pause: 500 },
+      { type: 'text', text: 'Race condition.', speed: [120, 200], pause: 200 },
+      { type: 'html', html: '<br/>' },
+      { type: 'html', html: '<br/>' },
+      { type: 'html', html: `<span style='color: #29ffb8'>Programmer B</span>: `, pause: 500 },
+      { type: 'text', text: `Who's there?`, speed: [220, 320] },
+    ],
+    'auto-type'
+  );
+  typist.start();
+</script>

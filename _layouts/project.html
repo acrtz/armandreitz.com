@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<div id='project-index'>
+  <img style='width: 100%;' src="{{page.image}}">
+  <h1>{{ page.name }}</h1>
+  <span>tags:</span>
+  {% for tag in page.tags %}
+    <span class='tag'>{{ tag }}</span>
+  {% endfor %}
+  {{ content }}
+  <ul>
+    {% assign filtered_posts = site.posts | where: 'author', page.short_name %}
+    {% for post in filtered_posts %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
