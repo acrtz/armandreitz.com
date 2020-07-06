@@ -2,13 +2,13 @@
 layout: project
 name: tour-guide
 slug: tour-guide
+description: A JS utility used to guide users through a website.
 npm: 
 github: 
 website: 
 tags: [Javascript]
 image: /assets/images/projects/tour-guide.png
 ---
-TourGuide is a simple javascript utility that can help you guide your users through your website.
 
 ```javascript
 // this is a comment

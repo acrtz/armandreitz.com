@@ -9,9 +9,10 @@ permalink: /projects
       <a class='project-thumbnail' href="{{ project.url }}">
         <img style='width: 100%;' src="{{ project.image }}" />
         <div class="project-thumbnail-title">{{ project.name }}</div>
-        {% for tag in project.tags%}
+        <!-- {% for tag in project.tags%}
           <div>{{tag}}</div>
-        {% endfor %}
+        {% endfor %} -->
+        <div>{{ project.description }}</div>
       </a>
     {% endfor %}
   </div>
