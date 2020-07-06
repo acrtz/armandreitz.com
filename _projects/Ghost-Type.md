@@ -1,13 +1,13 @@
 ---
 name: ghost-type
 slug: ghost-type
+description: A small javascript utility used to animate typing.
 npm: 
 github: 
 website: 
 tags: [Javascript]
 image: /assets/images/projects/ghost-type.png
 ---
-ghost-type is a small javascript utility used to animate typing.
 
 ``` javascript
 class Typist {

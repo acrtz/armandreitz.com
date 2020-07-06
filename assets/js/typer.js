@@ -1,5 +1,5 @@
 class Typist {
-  constructor(nodes, base, options) {
+  constructor(nodes, base, options = {}) {
     this.nodes = nodes;
     this.index = 0;
     this.options = options;
@@ -50,6 +50,10 @@ class Typist {
 
     if (this.nodes.length - 1 > this.index) {
       this.index = this.index + 1;
+      this.start();
+    } else if (this.options.loop) {
+      this.index = 0;
+      this.content.innerHTML = '';
       this.start();
     }
   }
