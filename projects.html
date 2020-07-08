@@ -2,17 +2,16 @@
 title: Projects
 permalink: /projects
 ---
-<div id='project-index'>
-  <h1 id='project-index-title'>Projects</h1>
-  <div id='project-list'>
+<div id='list-page'>
+  <h1 id='index-title'>Projects</h1>
+  <div id='thumbnail-list'>
     {% for project in site.projects %}
-      <a class='project-thumbnail' href="{{ project.url }}">
-        <img style='width: 100%;' src="{{ project.image }}" />
-        <div class="project-thumbnail-title">{{ project.name }}</div>
-        <!-- {% for tag in project.tags%}
-          <div>{{tag}}</div>
-        {% endfor %} -->
-        <div>{{ project.description }}</div>
+      <a class='thumbnail' href="{{ project.url }}">
+        <img class='thumbnail-image' src="{{ project.image }}" />
+        <div class="thumbnail-info">
+          <div class="thumbnail-title">{{ project.name }}</div>
+          <div class="thumbnail-description">{{ project.description }}</div>
+        </div>
       </a>
     {% endfor %}
   </div>
