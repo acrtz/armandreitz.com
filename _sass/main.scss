@@ -23,9 +23,15 @@ body {
 
 a {
   text-decoration: none;
-  color: #404040;
+  color: inherit;
 }
-
+.link {
+  text-decoration: underline;
+  color: #0276aa;
+}
+.min-margin {
+  margin: 5px 0px;
+}
 
 /****************************
       NAVIGATION
@@ -34,6 +40,12 @@ nav {
   padding: 10px 10vw;
   display: flex;
   align-items: center;
+  margin-bottom: 30px;
+}
+@media (max-width: 600px) {
+  nav {
+    margin-bottom: 10px;
+  }
 }
 #nav-name {
   margin-right: auto;
@@ -129,75 +141,70 @@ nav {
 /****************************
   projects.html
 ****************************/
-#project-index {
+#content-page {
   margin: 0px auto;
+  max-width: 1200px;
+  padding: 20px 0px 20px;
 }
-#project-list {
+#list-page {
+  margin: 0px auto;
+  padding: 20px 0px 20px;
+}
+#thumbnail-list {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   flex-shrink: 1;
   margin: 0px auto;
 } 
-.project-thumbnail {
-  display: inline-block;
-  width: 23%;
-  margin: 20px 1%;
+.thumbnail {
+  display: flex;
+  width: max-content;
+  margin: 10px;
+  box-shadow: 1px 1px 4px grey;
+  padding: 3px;
 }
-#project-index-title {
-  margin: 1%;
+.thumbnail-image {
+  width: 150px;
 }
-.project-thumbnail-title {
+.thumbnail-info {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+}
+@media (max-width: 600px) {
+  .thumbnail {
+    width: calc(100% - 10px);
+    margin: 5px;
+  }
+  .thumbnail-image {
+    width: 80px;
+    height: 80px;
+    float: left;
+  }
+  .thumbnail-info {
+    width: 220px;
+    font-size: 14px;
+    padding: 0px 5px;
+    width: calc(100% - 100px);
+  }
+}
+#index-title {
+  text-align: center;
+}
+.thumbnail-title {
   color: #0276aa;
-  font-size: 18px;
+  font-size: 1.2em;
+}
+.tags {
+  margin: 10px 0px;
 }
 .tag {
-  background-color: #5b5b5b;
+  background-color: #0276aa;
   color: white;
   height: 26px;
-  border-radius: 15px;
-  padding: 2px 5px;
-}
-@media (min-width: 620px) {
-  #project-index {
-    max-width: 620px;
-  }
-}
-@media (min-width: 950px) {
-  #project-index {
-    max-width: 930px;
-  }
-}
-@media (min-width: 1300px) {
-  #project-index {
-    max-width: 1240px;
-  }
-}
-@media (max-width: 1300px) {
-  .project-thumbnail {
-    width: 31%;
-    margin: 20px 1.16%;
-  }
-  #project-index-title {
-    margin: 1.16%;
-  }
-}
-@media (max-width: 950px) {
-  .project-thumbnail {
-    width: 46%;
-    margin: 20px 2%;
-  }
-  #project-index-title {
-    margin: 2%;
-  }
-}
-@media (max-width: 450px) {
-  .project-thumbnail {
-    width: 300px;
-    margin: 20px auto;
-  }
-  #project-index-title {
-    margin: 30px;
-  }
+  border-radius: 5px;
+  padding: 1px 3px;
 }
 
 /****************************
@@ -226,6 +233,26 @@ nav {
   }
 }
 
+/****************************
+  Marmkdown pages
+****************************/
+p {
+  font-size: 20px;
+  line-height: 1.8em;
+  margin: 30px 0px;
+  font-family: Cambria;
+}
+li {
+  font-size: 20px;
+  line-height: 1.5em;
+  margin: 10px 0px;
+  font-family: Cambria;
+}
+.center-image {
+  display: block;
+  margin: 0px auto;
+}
+
 
 /****************************
   CODE SNIPPET SYNTAX HIGHLIGHTING
@@ -247,20 +274,21 @@ nav {
 .highlight .gh { color: #999999 } /* Generic.Heading */
 .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
 .highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .go { color: #f1f1f1 } /* Generic.Output */
+.highlight .gp { color: #f1f1f1 } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
 .highlight .gt { color: #aa0000 } /* Generic.Traceback */
-.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kc { color: #5caef0 } /* Keyword.Constant */
 .highlight .kd { color: #4dc9bd } /* Keyword.Declaration */
 .highlight .kp { font-weight: bold } /* Keyword.Pseudo */
 .highlight .kr { font-weight: bold } /* Keyword.Reserved */
 .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
 .highlight .m { color: #009999 } /* Literal.Number */
 .highlight .s { color: #d14 } /* Literal.String */
-.highlight .na { color: #008080 } /* Name.Attribute */
-.highlight .nb { color: #97f07e; font-weight: bolder} /* Name.Builtin */
+.highlight .na { color: #ea8869 } /* Name.Attribute */
+.highlight .nb { color: #5caef0} /* Name.Builtin */
+// .highlight .nb { color: #97f07e; font-weight: bolder} /* Name.Builtin */
 .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
 .highlight .no { color: #008080 } /* Name.Constant */
 .highlight .ni { color: #800080 } /* Name.Entity */
@@ -272,10 +300,12 @@ nav {
 .highlight .ow { font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
 .highlight .nx { color: #5caef0 } /* Text.Whitespace */
+.highlight .nl { color: #5caef0 } /* Text.Whitespace */
 .highlight .mf { color: #009999 } /* Literal.Number.Float */
 .highlight .mh { color: #009999 } /* Literal.Number.Hex */
 .highlight .mi { color: #e862ec } /* Literal.Number.Integer */
 .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .n { color: #f1f1f1 } /* Literal.String.Backtick */
 .highlight .sb { color: #f1f1f1 } /* Literal.String.Backtick */
 .highlight .sc { color: #f1f1f1 } /* Literal.String.Char */
 .highlight .sd { color: #f1f1f1 } /* Literal.String.Doc */
@@ -300,11 +330,25 @@ div.highlight, figure.highlight {
   margin: 0px;
   margin: 0px auto;
   min-width: 300px;
-  width: 90vw;
   max-width: 1000px;
   overflow-x: scroll;
   border-radius: 5px; 
 }
+
+// .highlighter-rouge {
+//   margin-bottom: 20px;
+// }
+
+.hide-line-numbers .lineno {
+  display: none;
+}
+
+div.highlight::-webkit-scrollbar, figure.highlight::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
 pre {
   margin: 0px;
 }
+

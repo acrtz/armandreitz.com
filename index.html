@@ -1,5 +1,6 @@
 ---
 title: The Page
+technologies: [ Javascript, React, Node, Postgres, Graphql, REST, AWS, NGINX]
 ---
 <div style='display: flex; flex-direction: column; align-items: center;'>
   <div id="banner">
@@ -19,17 +20,31 @@ title: The Page
       <img class='social-icon' src='/assets/images/youtube.svg' />
     </a>
   </div>
+  <div>
+    Technologies I work with: {{ page.technologies | join: ', '}}
+  </div>
 </div>
 <script type="text/javascript" src='/assets/js/typer.js'></script>
 <script>
   const typist = new Typist(
     [
-      { type: 'text', text: 'Hey my name is Armand. I am a software developer. Welcome to my site.', speed: [80, 220] },
+      { type: 'text', text: 'Hey my name is Armand. I am a software developer. Welcome to my site.', speed: [80, 150] },
       { type: 'html', html: '<br/>', pause: 300 },
       { type: 'html', html: '<br/>', pause: 300 },
-      { type: 'text', text: 'This site is a collection of my work, projects, and thoughts on various development related topics.', speed: [80, 220] },
+      { type: 'text', text: 'This site is a collection of my work, projects, and thoughts on various development related topics.', speed: [80, 150] },
+      { type: 'html', html: '<br/>', pause: 300 },
+      { type: 'html', html: '<br/>', pause: 300 },
+      { type: 'text', text: 'Other than coding I enjoy: ', speed: [80, 150] },
+      { type: 'text', text: 'running ', speed: [80, 150], pause: 500, backspace: true },
+      { type: 'text', text: 'learning new technologies ', speed: [80, 150], pause: 500, backspace: true },
+      { type: 'text', text: 'swimming ', speed: [80, 150], pause: 500, backspace: true },
+      { type: 'text', text: 'studying Languages ', speed: [80, 150], pause: 500, backspace: true },
+      { type: 'text', text: 'kiteboarding ', speed: [80, 150], pause: 500, backspace: true },
+      { type: 'text', text: 'making omelettes ', speed: [80, 150], pause: 500, backspace: true },
+      { type: 'text', text: 'watching people build stuff ', speed: [80, 150], pause: 500, backspace: true, jumpBack: 5 },
     ],
-    'auto-type'
+    'auto-type',
+    { onComplete: () => {}}
   );
   typist.start();
 </script>

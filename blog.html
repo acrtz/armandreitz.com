@@ -2,14 +2,18 @@
 title: Blog
 permalink: /blog
 ---
-<h1>Latest Posts</h1>
-
-<ul>
-  {% for post in site.posts %}
-  <li>
-    
-    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-    {{ post.excerpt }}
-  </li>
-  {% endfor %}
-</ul>
+<div id='project-index'>
+  <h1 id='project-index-title'>Blog</h1>
+  <div id='project-list'>
+    {% for post in site.posts %}
+    <a class='project-thumbnail' href="{{ post.url }}">
+      <img style='width: 100%;' src="{{ post.image }}" />
+      <div class="project-thumbnail-title">{{ post.name }}</div>
+      <!-- {% for tag in project.tags%}
+          <div>{{tag}}</div>
+        {% endfor %} -->
+      <div>{{ post.description }}</div>
+    </a>
+    {% endfor %}
+  </div>
+</div>

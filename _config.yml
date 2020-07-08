@@ -2,7 +2,8 @@ collections:
   projects:
     output: true
     permalink: /:collection/:slug
-  posts: 
+  posts:
+    output: true
     permalink: /:collection/:title
 
 defaults:
@@ -34,7 +35,7 @@ plugins:
 # More › http://kramdown.gettalong.org/quickref.html
 # Options › http://kramdown.gettalong.org/options.html
 kramdown:
-  input:          GFM
+  input: GFM
   # https://github.com/jekyll/jekyll/pull/4090
   syntax_highlighter: rouge
 
