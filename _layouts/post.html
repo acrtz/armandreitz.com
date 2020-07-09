@@ -1,18 +1,23 @@
 ---
 layout: default
 ---
-<div id='project-index'>
-  <img style='width: 100%;' src="{{ page.image }}">
-  <h1>{{ page.name }}</h1>
-  {% if page.website %}
-  <a href="{{ page.website }}" rel="noopener noreferrer" target="_blank">{{ page.website }}</a>
-  {% endif%}
-  <div class='tags'>
-    <span>tags:</span>
-    {% for tag in page.tags %}
-      <span class='tag'>{{ tag }}</span>
-    {% endfor %}
+<div id='content-page'>
+  <div class="content-top">
+    <img class="content-image" src="{{page.image}}">
+    <div class="content-info">
+      <div class='content-title'>{{ page.name }}</div>
+      {% if page.website %}
+      <a href="{{ page.website }}" rel="noopener noreferrer" target="_blank">{{ page.website }}</a>
+      {% endif%}
+      <div id='tags'>
+        tags:
+        {% for tag in page.tags %}
+        <span class='tag'>{{ tag }}</span>
+        {% endfor %}
+      </div>
+      <div>published: {{ page.date | date: "%b %d, %Y" }}</div>
+    </div>
   </div>
-  <div>published: {{ page.date | date: "%b %d, %Y" }}</div>
   {{ content }}
 </div>
+

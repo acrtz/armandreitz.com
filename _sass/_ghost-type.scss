@@ -1,0 +1,25 @@
+/****************************
+  ghost-type
+****************************/
+#cursor {
+  display: inline-block;
+  width: 2px;
+  color: #ffffff00;
+  background-color: #fefefe;
+  animation: 1s linear flicker infinite;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

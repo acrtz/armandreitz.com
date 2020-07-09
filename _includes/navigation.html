@@ -1,5 +1,5 @@
 <nav>
-  <a href='/' id='nav-name'>Armand Reitz</a>
+  <a href='/' id='nav-name' class='link-inherit'>Armand Reitz</a>
   <div id='large-nav'>
     {% for item in site.data.navigation %}
     <a href="{{ item.link }}" class="nav-link {% if page.url == item.link %}active-nav{% endif %}">

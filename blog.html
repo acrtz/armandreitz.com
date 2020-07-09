@@ -2,18 +2,29 @@
 title: Blog
 permalink: /blog
 ---
-<div id='project-index'>
-  <h1 id='project-index-title'>Blog</h1>
-  <div id='project-list'>
+<div id='list-page'>
+  <h1 id='index-title'>Blog</h1>
+  <div id='thumbnail-list'>
     {% for post in site.posts %}
-    <a class='project-thumbnail' href="{{ post.url }}">
-      <img style='width: 100%;' src="{{ post.image }}" />
-      <div class="project-thumbnail-title">{{ post.name }}</div>
-      <!-- {% for tag in project.tags%}
-          <div>{{tag}}</div>
-        {% endfor %} -->
-      <div>{{ post.description }}</div>
-    </a>
+      <a class='thumbnail  link-inherit' href="{{ post.url }}">
+        <img class='thumbnail-image' src="{{ post.image }}" />
+        <div class="thumbnail-info">
+          <div class="thumbnail-title">{{ post.name }}</div>
+          <div class="thumbnail-description">{{ post.description }}</div>
+        </div>
+      </a>
     {% endfor %}
+    {% for post in site.posts %}
+      <a class='thumbnail  link-inherit' href="{{ post.url }}">
+        <img class='thumbnail-image' src="{{ post.image }}" />
+        <div class="thumbnail-info">
+          <div class="thumbnail-title">{{ post.name }}</div>
+          <div class="thumbnail-description">{{ post.description }}</div>
+        </div>
+      </a>
+    {% endfor %}
+    <!-- 2 divs used to line up last elements to left -->
+    <div style='width: 476px'></div>
+    <div style='width: 476px'></div>
   </div>
 </div>

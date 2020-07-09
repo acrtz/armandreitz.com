@@ -6,14 +6,17 @@ permalink: /projects
   <h1 id='index-title'>Projects</h1>
   <div id='thumbnail-list'>
     {% for project in site.projects %}
-      <a class='thumbnail' href="{{ project.url }}">
-        <img class='thumbnail-image' src="{{ project.image }}" />
+      <a class='thumbnail link-inherit' href="{{ project.url }}">
+        <img class='thumbnail-image' src="{{ project.image }}"  alt='{{ project.name }}'/>
         <div class="thumbnail-info">
           <div class="thumbnail-title">{{ project.name }}</div>
           <div class="thumbnail-description">{{ project.description }}</div>
         </div>
       </a>
     {% endfor %}
+    <!-- 2 divs used to line up last elements to left -->
+    <div style='width: 476px'></div>
+    <div style='width: 476px'></div>
   </div>
 </div>
 

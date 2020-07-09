@@ -6,23 +6,23 @@ npm:
 github: 
 website: 
 tags: [Javascript, graphql, postgres]
-image: /assets/images/posts/graphql.png
+image: /assets/images/posts/2018-07-14-beginner-graphql.png
 ---
 
-I started playing around with GraphQL a few weeks ago, initially just using [PostGraphile](https://www.graphile.org/postgraphile/){: .link} on the backend to take care of setting up the GraphQL schema for me. While PostGraphile is amazing, check it out if you work with postgres, I wanted to understand what was going on behind the scenes and what was being automated.
+I started playing around with GraphQL a few weeks ago, initially just using [PostGraphile](https://www.graphile.org/postgraphile/) on the backend to take care of setting up the GraphQL schema for me. While PostGraphile is amazing, check it out if you work with postgres, I wanted to understand what was going on behind the scenes and what was being automated.
 
 To see GraphQL in action you don’t actually need a database. You could just have it return static data, but that takes some of the fun out of it. So first we will set up a database. If you are not familiar with postgres and don’t want to go through the process of installing and learning to use it you could use whatever db you want, and just switch out the relevant sections of code.
 
-If you want to jump straight to the code then the repository can be found [here](https://github.com/acrtz/GraphQL_backend){: .link}.
+If you want to jump straight to the code then the repository can be found [here](https://github.com/acrtz/GraphQL_backend).
 
 ## Getting the database ready
-You can go [here](https://www.postgresql.org/){: .link} to learn more about postgres. If you are going to download it, I recommend using [homebrew](https://wiki.postgresql.org/wiki/Homebrew){: .link} if you are on a mac.  
+You can go [here](https://www.postgresql.org/) to learn more about postgres. If you are going to download it, I recommend using [homebrew](https://wiki.postgresql.org/wiki/Homebrew) if you are on a mac.  
 
 
 
 The db schema we will use is fairly simple. There will only be two tables, organization and person. A person can be employed by a company in which case the organization’s id is stored as organization_id in that persons row. This is a one to many relationship, with one person only be able to be associated with one organization and an organization being able to be associated with many people.
 
-![database relation](https://armandreitzdotcom-images.s3-us-west-2.amazonaws.com/2018-07-14-basic-graphql-backend-image-1.png){: .center-image }
+![database relation](https://armandreitzdotcom-images.s3-us-west-2.amazonaws.com/2018-07-14-basic-graphql-backend-image-1.png)
 
 The tables can be created and populated from the terminal in a few different ways. You could also use a GUI like pgAdmin or DBeaver for creating the database if you feel more comfortable with that.
 
@@ -186,7 +186,7 @@ module.exports = new GraphQLSchema({query})
 
 We created an object by using the GraphQLObjectType, each object we create needs to have a name and fields. Fields specifies the data held within the object type we are creating. In the case of the OrganizationType, there are the id, name, and description fields which have a type of GraphQLString. A more complete list of types provided by GraphQL can be found [here](https://graphql.org/graphql-js/type/){: .link }, and there are also other libraries providing additional types such as uuid.
 
-Next we create the root query type which we just call query. This will be placed in our schema and used to hold all of our queries. The fields object in the query object has some fields that weren’t present in the OrganizationType. The args field allows us to pass arguments to our query to specify the data we want. Here the argument is an id of the string type which corresponds to an organization id we would need to query for a specific organization. After the args field there is a function called resolve. This function tells graphQL how to resolve or get the data we are querying. The resolve function is passed 4 arguments the parent, args, context, and info. parent is the object holding the fields object, it allows to access data such as the id of the parent object. args holds the variables that we passed into the aforementioned args field. context and info provide additional resources and information that you can learn more about [here](https://www.prisma.io/blog/graphql-server-basics-the-schema-ac5e2950214e/){: .link}. Within the resolve function is where we actually make the request to our database. If you decided to not download and use postgres this is were you could query some other database or return hard coded data.
+Next we create the root query type which we just call query. This will be placed in our schema and used to hold all of our queries. The fields object in the query object has some fields that weren’t present in the OrganizationType. The args field allows us to pass arguments to our query to specify the data we want. Here the argument is an id of the string type which corresponds to an organization id we would need to query for a specific organization. After the args field there is a function called resolve. This function tells graphQL how to resolve or get the data we are querying. The resolve function is passed 4 arguments the parent, args, context, and info. parent is the object holding the fields object, it allows to access data such as the id of the parent object. args holds the variables that we passed into the aforementioned args field. context and info provide additional resources and information that you can learn more about [here](https://www.prisma.io/blog/graphql-server-basics-the-schema-ac5e2950214e/). Within the resolve function is where we actually make the request to our database. If you decided to not download and use postgres this is were you could query some other database or return hard coded data.
 
 (Note: the postgres client pg-promise has features that I am not going into but that you should know about if you plan on making use of the library in less contrived settings. For instance db.one, db.many, db.oneOrNone, db.manyOrNone can be specified and will result in an error if the number of rows returned doesn’t match the specified values. Alternatively db.any can be used but does offer the same type of error detection.)
 
@@ -194,7 +194,7 @@ The final thing we need to do before we can start seeing GraphQL in action is to
 
 At this point we should be able to go to the command line and run the command ‘nodemon server.js’ from the folder containing server.js. If you see the output message listening on PORT 4000 then everything is running fine and you can head over to your browser and enter the address, localhost:4000/graphql , which should open up the graphiQL graphical interface which looks like this
 
-![graphical display](https://armandreitzdotcom-images.s3-us-west-2.amazonaws.com/graphiql-display.jpeg){: .center-image}
+![graphical display](https://armandreitzdotcom-images.s3-us-west-2.amazonaws.com/graphiql-display.jpeg)
 
 if you click on Docs in the top right of the screen you will be able to see the queries that are now available to us. There should be a root queries followed by query: Query. Clicking on Query will then show you the organization type we just created. We can perform our first query by placing the following code in the code editor (the portion of the screen currently containing the # comments) and hitting the play button. If you type the query rather than copy pasting it you will realise the GraphiQL has autocomplete which is pretty helpful.
 
@@ -211,7 +211,7 @@ query {
 
 You should end up getting a response that looks like this:
 
-![graphiql response](https://armandreitzdotcom-images.s3-us-west-2.amazonaws.com/graphiql-response.jpeg){: .center-image}
+![graphiql response](https://armandreitzdotcom-images.s3-us-west-2.amazonaws.com/graphiql-response.jpeg)
 
 Notice that the Docs section tells us what arguments we need to give the organization object type (id: String) in this case. I happen to know that the ids for our three organizations are “1”, “2”, and “3”, since they were entered into the database with the SERIAL type. Try and run the command with the other two id strings. Looking back at the Docs segment of the screen. If you click on Organization, the one after the ‘:’, you will see the data that is available to you within the organization type. We can choose any of the data we want. Go ahead and remove id, name, or description from the code editor. Notice how it is then gone from the returned data. This is the true power of GraphQL you can specify from the front side exactly the data you want. No more over or under-fetching.
 
@@ -389,7 +389,7 @@ mutation {
 
 Well that covers the basics.
 
-If you look at the [complete code](https://github.com/acrtz/GraphQL_backend){: .link} you will see that there are some additional queries added, allOrganizations, and allPeople. Since each query needs to return a given type we can’t use the organization query to return a list of organizations instead we would need to create a second query like the allOrganizations one if we wanted access to all the organizations stored in our db.
+If you look at the [complete code](https://github.com/acrtz/GraphQL_backend) you will see that there are some additional queries added, allOrganizations, and allPeople. Since each query needs to return a given type we can’t use the organization query to return a list of organizations instead we would need to create a second query like the allOrganizations one if we wanted access to all the organizations stored in our db.
 
 If you are looking to practice what you have learned then here are some things you could try to do.  
 -Add another table to the db and create its type object and query so you can access it through GraphiQL.  

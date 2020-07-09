@@ -1,0 +1,39 @@
+/****************************
+  index.html
+****************************/
+#banner {
+  margin: 30px 8px 0px 8px;
+  padding: 10px;
+  max-width: 1300px;
+  width: calc(100% - 16px);
+  background-color: #404040;
+  min-height: 320px;
+  max-height: 75vh;
+  color: #fefefe;
+  border-radius: 4px;
+  font-size: 18px;
+  line-height: 1.5em;
+}
+@media (min-width: 751px) and (min-height: 501px) {
+  #banner {
+    font-size: 27px;
+    margin: 10px 20px 0px 20px;
+    padding: 15px;
+    width: calc(100% - 40px);
+  }
+}
+#social-bar {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #fefefe;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0px auto;
+  width: 300px;
+}
+.social-icon {
+  background-color: #fefefe;
+  border-radius: 4px;
+  margin: 0px auto;
+  height: 30px;
+}

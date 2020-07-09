@@ -1,0 +1,63 @@
+/****************************
+  projects.html & blog.html
+****************************/
+#list-page {
+  margin: 0px auto;
+  padding: 20px 0px 20px;
+}
+#thumbnail-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-shrink: 1;
+  margin: 0px auto;
+} 
+.thumbnail {
+  display: flex;
+  width: max-content;
+  margin: 10px;
+  box-shadow: 1px 1px 4px grey;
+  padding: 3px;
+}
+.thumbnail-image {
+  width: 150px;
+}
+.thumbnail-info {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+}
+@media (max-width: 600px) {
+  .thumbnail {
+    width: calc(100% - 10px);
+    margin: 5px;
+  }
+  .thumbnail-image {
+    width: 80px;
+    height: 80px;
+    float: left;
+  }
+  .thumbnail-info {
+    width: 220px;
+    font-size: 14px;
+    padding: 0px 5px;
+    width: calc(100% - 100px);
+  }
+}
+#index-title {
+  text-align: center;
+}
+.thumbnail-title {
+  color: #0276aa;
+  font-size: 1.2em;
+}
+#tags {
+  margin: 10px 0px;
+}
+.tag {
+  background-color: #0276aa;
+  color: white;
+  height: 26px;
+  border-radius: 5px;
+  padding: 1px 3px;
+}
