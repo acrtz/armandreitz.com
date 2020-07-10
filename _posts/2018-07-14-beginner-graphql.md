@@ -5,7 +5,7 @@ description: how to set up a basic graphql server with a postgres db
 npm: 
 github: 
 website: 
-tags: [Javascript, graphql, postgres]
+tags: [GraphQL, PostgreSQL]
 image: /assets/images/posts/2018-07-14-beginner-graphql.png
 ---
 
@@ -13,14 +13,14 @@ I started playing around with GraphQL a few weeks ago, initially just using [Pos
 
 To see GraphQL in action you don’t actually need a database. You could just have it return static data, but that takes some of the fun out of it. So first we will set up a database. If you are not familiar with postgres and don’t want to go through the process of installing and learning to use it you could use whatever db you want, and just switch out the relevant sections of code.
 
-If you want to jump straight to the code then the repository can be found [here](https://github.com/acrtz/GraphQL_backend).
+If you want to jump straight to the code then the repository can be found at [github repo](https://github.com/acrtz/GraphQL_backend).
 
 ## Getting the database ready
-You can go [here](https://www.postgresql.org/) to learn more about postgres. If you are going to download it, I recommend using [homebrew](https://wiki.postgresql.org/wiki/Homebrew) if you are on a mac.  
+You can go to the [Postgres website](https://www.postgresql.org/) to learn more about postgres. If you are going to download it, I recommend using [homebrew](https://wiki.postgresql.org/wiki/Homebrew) if you are on a mac.  
 
 
 
-The db schema we will use is fairly simple. There will only be two tables, organization and person. A person can be employed by a company in which case the organization’s id is stored as organization_id in that persons row. This is a one to many relationship, with one person only be able to be associated with one organization and an organization being able to be associated with many people.
+The db schema we will use is fairly simple. There will only be two tables, organization and person. A person can be employed by a company in which case the organization’s id is stored as organization_id in that persons row. This is a one to many relationship, with one person only being able to be associated with one organization and an organization being able to be associated with many people.
 
 ![database relation](https://armandreitzdotcom-images.s3-us-west-2.amazonaws.com/2018-07-14-basic-graphql-backend-image-1.png)
 
@@ -184,9 +184,9 @@ const query = new GraphQLObjectType({
 module.exports = new GraphQLSchema({query})
 ```
 
-We created an object by using the GraphQLObjectType, each object we create needs to have a name and fields. Fields specifies the data held within the object type we are creating. In the case of the OrganizationType, there are the id, name, and description fields which have a type of GraphQLString. A more complete list of types provided by GraphQL can be found [here](https://graphql.org/graphql-js/type/){: .link }, and there are also other libraries providing additional types such as uuid.
+We created an object by using the GraphQLObjectType, each object we create needs to have a name and fields. Fields specifies the data held within the object type we are creating. In the case of the OrganizationType, there are the id, name, and description fields which have a type of GraphQLString. A more complete list of types provided by GraphQL can be found at [graphql.org](https://graphql.org/graphql-js/type/){: .link }, and there are also other libraries providing additional types such as uuid.
 
-Next we create the root query type which we just call query. This will be placed in our schema and used to hold all of our queries. The fields object in the query object has some fields that weren’t present in the OrganizationType. The args field allows us to pass arguments to our query to specify the data we want. Here the argument is an id of the string type which corresponds to an organization id we would need to query for a specific organization. After the args field there is a function called resolve. This function tells graphQL how to resolve or get the data we are querying. The resolve function is passed 4 arguments the parent, args, context, and info. parent is the object holding the fields object, it allows to access data such as the id of the parent object. args holds the variables that we passed into the aforementioned args field. context and info provide additional resources and information that you can learn more about [here](https://www.prisma.io/blog/graphql-server-basics-the-schema-ac5e2950214e/). Within the resolve function is where we actually make the request to our database. If you decided to not download and use postgres this is were you could query some other database or return hard coded data.
+Next we create the root query type which we just call query. This will be placed in our schema and used to hold all of our queries. The fields object in the query object has some fields that weren’t present in the OrganizationType. The args field allows us to pass arguments to our query to specify the data we want. Here the argument is an id of the string type which corresponds to an organization id we would need to query for a specific organization. After the args field there is a function called resolve. This function tells graphQL how to resolve or get the data we are querying. The resolve function is passed 4 arguments: parent, args, context, and info. parent is the object holding the fields object, it allows to access data such as the id of the parent object. args holds the variables that we passed into the aforementioned args field. context and info provide additional resources and information that you can learn more about [here](https://www.prisma.io/blog/graphql-server-basics-the-schema-ac5e2950214e/). Within the resolve function is where we actually make the request to our database. If you decided to not download and use postgres this is were you could query some other database or return hard coded data.
 
 (Note: the postgres client pg-promise has features that I am not going into but that you should know about if you plan on making use of the library in less contrived settings. For instance db.one, db.many, db.oneOrNone, db.manyOrNone can be specified and will result in an error if the number of rows returned doesn’t match the specified values. Alternatively db.any can be used but does offer the same type of error detection.)
 
