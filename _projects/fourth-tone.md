@@ -34,6 +34,7 @@ Courses are comprised of lessons that build on top of each other. They provide a
 Both Articles and Lessons also include audio recording so that students can work on the lestining as well.
 
 ### Level Assessment
+For students coming in to the platform who are unsure of their level. They can take a HSK level assesment test. The test uses 30 questions to determine the students level. The questions are a combination of picking the correct definition for a character and completing a sentence by filling in the blank. 
 
 
 ## Freemium
