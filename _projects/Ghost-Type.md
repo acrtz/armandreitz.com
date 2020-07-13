@@ -6,7 +6,7 @@ npm:
 github: 
 website: 
 tags: [Javascript]
-image: /assets/images/projects/ghost-type.png
+image: https://media.armandreitz.com/projects/ghost-type.png
 ---
 
 ``` javascript

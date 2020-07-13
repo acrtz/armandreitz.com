@@ -7,7 +7,7 @@ npm:
 github: 
 website: 
 tags: [Javascript]
-image: /assets/images/projects/tour-guide.png
+image: https://media.armandreitz.com/projects/tour-guide.png
 ---
 
 ```javascript

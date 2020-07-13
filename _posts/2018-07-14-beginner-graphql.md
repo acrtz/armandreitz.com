@@ -6,7 +6,7 @@ npm:
 github: 
 website: 
 tags: [GraphQL, PostgreSQL]
-image: /assets/images/posts/2018-07-14-beginner-graphql.png
+image: https://media.armandreitz.com/posts/2018-07-14-beginner-graphql.png
 ---
 
 I started playing around with GraphQL a few weeks ago, initially just using [PostGraphile](https://www.graphile.org/postgraphile/) on the backend to take care of setting up the GraphQL schema for me. While PostGraphile is amazing, check it out if you work with postgres, I wanted to understand what was going on behind the scenes and what was being automated.
