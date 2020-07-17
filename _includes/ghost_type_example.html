@@ -1,23 +1,49 @@
-<div style="line-height: 1.2em; margin: 5px; padding: 5px; font-family: monospace, Courier; color: white; width: 80%; margin: 20px auto; padding: 20px; height: 200px; background-color: #424242; font-size: 16px;">
-  <div id='ghost-type-example'></div>
+<div>Tell a knock-knock joke</div>
+<div style="line-height: 1.2em; font-family: monospace, Courier; color: #424242; margin: 10px; height: 150px; font-size: 17px; width: 300px;">
+  <div id='knock-knock'></div>
+</div>
+<div>Animate the writing of a letter</div>
+<div style="line-height: 1.2em; font-family: monospace, Courier; color: #424242; margin: 10px; height: 150px; font-size: 20px;">
+  <div id='write-letter'></div>
 </div>
 <script src='/assets/js/ghost-type.js'></script>
 <script>
-  const gt = new GhostType(
-    [
-      { type: 'html', html: `<span style='color: #e34ee1'>Programmer A</span>: `, pause: 500 },
-      { type: 'text', text: 'Knock, knock...', speed: [120, 280], pause: 500 },
-      { type: 'html', html: '<br/>' },
-      { type: 'html', html: '<br/>' },
-      { type: 'html', html: `<span style='color: #e34ee1'>Programmer A</span>: `, pause: 500 },
-      { type: 'text', text: 'Race condition.', speed: [120, 200], pause: 400 },
-      { type: 'html', html: '<br/>' },
-      { type: 'html', html: '<br/>' },
-      { type: 'html', html: `<span style='color: #29ffb8'>Programmer B</span>: `, pause: 500 },
-      { type: 'text', text: `Who's there?`, speed: [120, 280] },
+  const knockKnock = new GhostType({
+    anchorEl: 'knock-knock',
+    nodes: [
+      { text: `Developer A`, typingDelay: 0, style: 'color: #e34ee1; font-weight: bolder;' },
+      { text: `: `, typingDelay: 0 },
+      { pause: 1000, text: 'Knock, knock...', typingDelay: [120, 280], pause: 500 },
+      { html: '<br/>', pause: 500 },
+      { html: '<br/>' },
+      { text: `Developer A`, typingDelay: 0, style: 'color: #e34ee1; font-weight: bolder;' },
+      { text: `: `, typingDelay: 0 },
+      { pause: 1000, text: 'Race condition.', typingDelay: [120, 200] },
+      { html: '<br/>', pause: 400},
+      { html: '<br/>' },
+      { text: `Developer B`, style: 'color: #38c597; font-weight: bolder;', typingDelay: 0 },
+      { text: `: `, typingDelay: 0 },
+      { pause: 1000, text: `Who's there?`, typingDelay: [120, 280] },
+      { pause: 2000 },
     ],
-    'ghost-type-example',
-    { loop: true }
-  );
-  gt.start();
+    options: { repeat: { clear: true }, cursor: { color: '#424242' } }
+  });
+  knockKnock.start();
+
+  const writeLetter = new GhostType({
+    anchorEl: 'write-letter',
+    nodes: [
+      { text: 'To Wom It May Conc', typingDelay: [80, 120], backspace: { count: 14, delay: [60, 100] } },
+      { text: 'hom It May Concern,', typingDelay: [80, 120], pause: 500 },
+      { html: '<br/>', pause: 100},
+      { html: '<br/>', pause: 100},
+      { text: 'I am writing to you because Lorem ipsum dolor it amet', typingDelay: [80, 140], pause: 300, backspace: { count: 7, delay: [60, 100] } },
+      { text: 'sit amet, consectetur adipiscing elit. ', typingDelay: [80, 160], pause: 300},
+      { text: 'Morbi pulvinar porttitor bibendum.', typingDelay: [80, 120], pause: 300, backspace: { delay: [60, 100] } },
+      { text: 'Duis sit amet sem vel nulla varius pharetra sit amet nec velit. ', typingDelay: [90, 200], pause: 300},
+      { pause: 2000}
+    ],
+    options: { repeat: { clear: true }, cursor: { color: '#424242' } }
+  });
+  writeLetter.start();
 </script>

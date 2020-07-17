@@ -1,0 +1,26 @@
+#contact-info {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  margin: 0px auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+#contact-info a {
+  text-decoration: none;
+}
+a.resume-link {
+  text-align: center;
+  margin: 5px auto;
+  font-size: 18px;
+  background-color: $blue;
+  color: white;
+  border-radius: 3px;
+  padding: 3px 10px;
+}
+.social-icon {
+  background-color: #fefefe;
+  border-radius: 4px;
+  margin: 0px 5px;
+  height: 30px;
+}

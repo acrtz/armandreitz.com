@@ -12,3 +12,18 @@
   margin: 0px auto;
   border: 1px solid #ececec;
 }
+
+.table-in-markdown {
+  border-collapse: collapse;
+  font-size: 18px;
+  font-family: Menlo, Helvetica;
+}
+.table-in-markdown td, .table-in-markdown th {
+  border: 1px solid #5d5d5d;
+  text-align: center;
+  padding: 5px;
+}
+.table-in-markdown th {
+ background-color: #5d5d5d;
+ color: white;
+}

@@ -1,10 +1,17 @@
 collections: 
   projects:
     output: true
-    permalink: /:collection/:slug
+    permalink: /project/:slug
+    sort_by: order
+  draft-projects:
+    output: true
+    permalink: /draft-project/:slug
   posts:
     output: true
-    permalink: /:collection/:title
+    permalink: /post/:title
+  draft-posts:
+    output: true
+    permalink: /draft-post/:title
 
 defaults:
   - scope:
@@ -14,7 +21,17 @@ defaults:
       layout: "project"
   - scope:
       path: ""
+      type: "draft-projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
       type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "draft-posts"
     values:
       layout: "post"
   - scope:
@@ -27,11 +44,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# markdown: kramdown
-
-# kramdown:
-#   input: GFM
-#   syntax_highlighter: rouge
 # More › http://kramdown.gettalong.org/quickref.html
 # Options › http://kramdown.gettalong.org/options.html
 kramdown:
@@ -44,7 +56,6 @@ kramdown:
   syntax_highlighter_opts:
     # Rouge Options › https://github.com/jneen/rouge#full-options
     css_class: 'highlight'
-    #line_numbers: true # bad idea, spans don't need linenos and would inherit this option
     span:
       line_numbers: false
     block:
